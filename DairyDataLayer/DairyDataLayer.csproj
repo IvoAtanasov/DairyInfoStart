@@ -47,11 +47,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DairyDbContext.cs" />
+    <Compile Include="GenericRepository.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DairyModelLayer\DairyModelLayer.csproj">
+      <Project>{aefc4482-160d-4dac-b2c4-3ba32180090b}</Project>
+      <Name>DairyModelLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

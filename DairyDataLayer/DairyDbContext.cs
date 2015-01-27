@@ -6,10 +6,15 @@
     using System.Text;
     using System.Threading.Tasks;
     using System.Data.Entity;
-   // using DairyModelLayer;
-    class DairyDbContext:DbContext
+    using DairyModelLayer;
+    public  class DairyDbContext : DbContext
     {
-        //public DbSet<Story> Story { get; set; }
-        //public DbSet<MySelf> MySelf { get; set; }
+        public DairyDbContext()
+            : base("DairyDbContext")
+        {
+          //  Database.SetInitializer(new MigrateDatabaseToLatestVersion<DairyDbContex, Configuration>());
+        }
+        public DbSet<Story> Story { get; set; }
+        public DbSet<MySelf> MySelf { get; set; }
     }
 }
