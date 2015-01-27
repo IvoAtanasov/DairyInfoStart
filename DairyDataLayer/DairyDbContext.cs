@@ -6,10 +6,10 @@
     using System.Text;
     using System.Threading.Tasks;
     using System.Data.Entity;
-    using DairyModelLayer;
+   // using DairyModelLayer;
     class DairyDbContext:DbContext
     {
-        public DbSet<Story> Story { get; set; }
-        public DbSet<MySelf> MySelf { get; set; }
+        //public DbSet<Story> Story { get; set; }
+        //public DbSet<MySelf> MySelf { get; set; }
     }
 }
