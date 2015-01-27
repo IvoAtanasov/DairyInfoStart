@@ -1,6 +1,4 @@
-﻿
-
-namespace DairyWeb.Infrastructure
+﻿namespace DairyWeb.Infrastructure
 {
     using System;
     using System.Collections.Generic;

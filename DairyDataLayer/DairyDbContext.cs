@@ -7,12 +7,13 @@
     using System.Threading.Tasks;
     using System.Data.Entity;
     using DairyModelLayer;
+    using DairyDataLayer.Migrations;
     public  class DairyDbContext : DbContext
     {
         public DairyDbContext()
             : base("DairyDbContext")
         {
-          //  Database.SetInitializer(new MigrateDatabaseToLatestVersion<DairyDbContex, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DairyDbContext, Configuration>());
         }
         public DbSet<Story> Story { get; set; }
         public DbSet<MySelf> MySelf { get; set; }
