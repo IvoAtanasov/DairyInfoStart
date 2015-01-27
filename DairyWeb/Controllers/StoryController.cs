@@ -25,5 +25,36 @@
                 .To<StoryInfo>();
             return View(allStories);
         }
+
+        public ActionResult Create()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(StoryInfo st)
+        {
+            if (ModelState.IsValid)
+            {
+                Story storyEntity = new Story
+                {
+                    StoryText = st.StoryText,
+                    StoryDate = st.StoryDate,
+                    Title = st.Title,
+                    Rate = st.Rate,
+                    ImageUrl = st.ImageUrl
+
+                };
+                this._story.Add(storyEntity);
+                this._story.SaveChanges();
+                //Връщам към списъка
+                return RedirectToAction("Index");
+            }
+            else 
+            {
+                return View(st); 
+            }
+            return View();
+        }
     }
 }
