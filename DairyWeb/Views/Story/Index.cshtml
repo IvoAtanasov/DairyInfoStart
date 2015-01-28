@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Добави история", "Create")
 </p>
-<table class="table">
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -27,31 +27,24 @@
             @Html.DisplayNameFor(model => model.ImageUrl)
         </th>
         <th></th>
-    </tr>
+    </tr>*@
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StoryDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StoryText)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageUrl)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.StoryID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.StoryID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.StoryID })
-        </td>
-    </tr>
+    <fieldset>
+        <legend>@Html.DisplayFor(modelItem => item.Title)</legend>
+                
+                    @Html.DisplayFor(modelItem => item.StoryDate)
+                
+                    @Html.DisplayFor(modelItem => item.Rate)
+               
+                    @Html.DisplayFor(modelItem => item.StoryText)
+                
+                    @Html.DisplayFor(modelItem => item.ImageUrl)
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.StoryID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.StoryID }) |*@
+                    @Html.ActionLink("Delete", "Delete", new { id = item.StoryID })
+       
+</fieldset>
 }
 
-</table>
+            @*</table>*@
