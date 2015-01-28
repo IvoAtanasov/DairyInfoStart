@@ -32,18 +32,23 @@
 @foreach (var item in Model) {
     <fieldset>
         <legend>@Html.DisplayFor(modelItem => item.Title)</legend>
-                
-                    @Html.DisplayFor(modelItem => item.StoryDate)
-                
-                    @Html.DisplayFor(modelItem => item.Rate)
+                <span><img class="ProfilPicture" src="@item.ImageUrl" /></span>
+        <span>
+          @Html.DisplayFor(modelItem => item.StoryDate) 
+
+          @Html.DisplayFor(modelItem => item.Rate)
+        </span>
                
-                    @Html.DisplayFor(modelItem => item.StoryText)
+        <span>  @Html.DisplayFor(modelItem => item.StoryText)</span>
                 
-                    @Html.DisplayFor(modelItem => item.ImageUrl)
+                    @*@Html.DisplayFor(modelItem => item.ImageUrl)*@
                 @*@Html.ActionLink("Edit", "Edit", new { id=item.StoryID }) |
                 @Html.ActionLink("Details", "Details", new { id=item.StoryID }) |*@
-                    @Html.ActionLink("Delete", "Delete", new { id = item.StoryID })
-       
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.StoryID })*@
+        <a href="@Url.Action("Delete", "Story", new { id = item.StoryID })">
+            <img src="~/Content/Images/Delete.gif" />
+        </a>
+
 </fieldset>
 }
 
