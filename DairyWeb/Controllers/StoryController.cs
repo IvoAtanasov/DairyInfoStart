@@ -25,17 +25,20 @@
                 .To<StoryInfo>();
             return View(allStories);
         }
-
         public ActionResult Create()
         {
-
             return View();
         }
         [HttpPost]
         public ActionResult Create(StoryInfo st)
         {
+            string fileName;
+            string path;
             if (ModelState.IsValid)
             {
+                fileName = System.IO.Path.GetFileName(st.PostedFile.FileName);
+                path = System.IO.Path.Combine(Server.MapPath("~/Content/Pictures/"), fileName);
+                st.PostedFile.SaveAs(path);
                 Story storyEntity = new Story
                 {
                     StoryText = st.StoryText,
@@ -43,18 +46,23 @@
                     Title = st.Title,
                     Rate = st.Rate,
                     ImageUrl = st.ImageUrl
-
                 };
                 this._story.Add(storyEntity);
                 this._story.SaveChanges();
                 //Връщам към списъка
                 return RedirectToAction("Index");
             }
-            else 
-            {
                 return View(st); 
-            }
-            return View();
+        }
+        public ActionResult Delete(int Id)
+        {
+            var storyEntity = _story.All()
+                .Where(x => x.StoryID == Id)
+                .FirstOrDefault();
+            _story.Delete(storyEntity);
+            _story.SaveChanges();
+            return RedirectToAction("Index");
+           // return View();
         }
     }
 }

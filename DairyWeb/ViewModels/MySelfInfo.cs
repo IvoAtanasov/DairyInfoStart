@@ -13,6 +13,7 @@
         [Required(ErrorMessage="Моля,въведете име!")]
         public string Name { get; set; }
         public DateTime Born { get; set; }
+        public string Info { get; set; }
         public string ImageUrl { get; set; }
     }
 }

@@ -17,18 +17,24 @@ textarea {
 }
 
 fieldset { 
-    display: block;
+    display: inline;
     margin-left: 2px;
     margin-right: 2px;
     padding-top: 0.35em;
     padding-bottom: 0.625em;
     padding-left: 0.75em;
     padding-right: 0.75em;
-    border: 2px groove (internal value);
+    border: 5px;
 }
 
 .ProfilPicture {
-height:200px;
-width:150px;
+height:80px;
+width:50px;
+}
+
+div.border {
+	border-style: solid;
+    border-width: medium;
+	display:block;
 }
 

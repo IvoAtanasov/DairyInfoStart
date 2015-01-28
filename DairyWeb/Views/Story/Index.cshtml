@@ -1,11 +1,8 @@
 ﻿@model IEnumerable<DairyWeb.ViewModels.StoryInfo>
-
 @{
     ViewBag.Title = "Index";
 }
-
 <h2>Index</h2>
-
 <p>
     @Html.ActionLink("Добави история", "Create")
 </p>
@@ -28,28 +25,28 @@
         </th>
         <th></th>
     </tr>*@
+@foreach (var item in Model)
+{
+    //  <fieldset>
+    <div class="container border">
+      <article>@Html.DisplayFor(modelItem => item.Title)</article>  
+        <table>
+            <tr>
+                <td><img class="ProfilPicture" src="@item.ImageUrl" /></td>
+                <td>
+                    <div>@Html.DisplayFor(modelItem => item.StoryDate)</div>
+                    <div>@Html.DisplayFor(modelItem => item.Rate)</div>
+                </td>
 
-@foreach (var item in Model) {
-    <fieldset>
-        <legend>@Html.DisplayFor(modelItem => item.Title)</legend>
-                <span><img class="ProfilPicture" src="@item.ImageUrl" /></span>
-        <span>
-          @Html.DisplayFor(modelItem => item.StoryDate) 
-
-          @Html.DisplayFor(modelItem => item.Rate)
-        </span>
-               
-        <span>  @Html.DisplayFor(modelItem => item.StoryText)</span>
-                
-                    @*@Html.DisplayFor(modelItem => item.ImageUrl)*@
-                @*@Html.ActionLink("Edit", "Edit", new { id=item.StoryID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.StoryID }) |*@
-                    @*@Html.ActionLink("Delete", "Delete", new { id = item.StoryID })*@
-        <a href="@Url.Action("Delete", "Story", new { id = item.StoryID })">
-            <img src="~/Content/Images/Delete.gif" />
-        </a>
-
-</fieldset>
+                <td> @Html.DisplayFor(modelItem => item.StoryText)</td>
+                <td>
+                    <a href="@Url.Action("Delete", "Story", new { id = item.StoryID })">
+                        <img src="~/Content/Images/Delete.gif" />
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    // </fieldset>
 }
-
-            @*</table>*@
+@*</table>*@
