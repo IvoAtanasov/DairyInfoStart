@@ -29,8 +29,10 @@ namespace DairyDataLayer.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            //context.MySelf.AddOrUpdate(new MySelf { Name = "Ivo", Born = DateTime.Now, ImageUrl = @"~\Content\Images\ProfilePicture.jpg", Info="Проект за ИнфоСтарт" });
-            //context.SaveChanges();
+            if (context.MySelf.Count()==0){
+            context.MySelf.AddOrUpdate(new MySelf { Name = "Ivo", Born =DateTime.Parse("03/05/1985"), ImageUrl = @"ProfilePicture.jpg", Info = "Проект за ИнфоСтарт Адрес в GITHUB:https://github.com/IvoAtanasov/DairyInfoStart" });
+            context.SaveChanges();
+        }
         }
     }
 }

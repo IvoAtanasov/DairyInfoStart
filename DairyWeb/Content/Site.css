@@ -40,4 +40,8 @@ div.border {
     border-width: medium;
 	display:block;
 }
+td.picture {
+padding-left: 0px;
+padding-top:0px;
+}
 

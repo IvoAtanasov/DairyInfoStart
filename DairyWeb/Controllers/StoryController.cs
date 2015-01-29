@@ -17,10 +17,19 @@
         {
             this._story = story;
         }
-        // GET: Story
+        // GET: Story 
         public ActionResult Index()
         {
             var allStories = _story.All()
+                .Project()
+                .To<StoryInfo>();
+            return View(allStories);
+        }
+        [HttpPost]
+        public ActionResult Index(string txtSearch)
+        {
+            var allStories = _story.All()
+                .Where(x=>x.Title.Contains(txtSearch) || x.StoryText.Contains(txtSearch))
                 .Project()
                 .To<StoryInfo>();
             return View(allStories);

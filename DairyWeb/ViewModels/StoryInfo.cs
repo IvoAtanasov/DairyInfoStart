@@ -16,6 +16,7 @@
         public string Title { get; set; }
         [Required(ErrorMessage="Моля,задаите дата")]
         [Display(Name="Дата")]
+        [DataType(DataType.DateTime)]
         public DateTime StoryDate { get; set; }
         [Range(0,6)]
         [Display(Name="Рейтинг на историята")]
