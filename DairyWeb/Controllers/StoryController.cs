@@ -30,22 +30,26 @@
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(StoryInfo st)
         {
-            string fileName;
-            string path;
+            string fileName="";
+            string path="";
             if (ModelState.IsValid)
             {
-                fileName = System.IO.Path.GetFileName(st.PostedFile.FileName);
-                path = System.IO.Path.Combine(Server.MapPath("~/Content/Pictures/"), fileName);
-                st.PostedFile.SaveAs(path);
+                if (st.PostedFile.ContentLength > 0)
+                {
+                    fileName = System.IO.Path.GetFileName(st.PostedFile.FileName);
+                    path = System.IO.Path.Combine(Server.MapPath("~/Content/Pictures/"), fileName);
+                    st.PostedFile.SaveAs(path);
+                }
                 Story storyEntity = new Story
                 {
                     StoryText = st.StoryText,
                     StoryDate = st.StoryDate,
                     Title = st.Title,
                     Rate = st.Rate,
-                    ImageUrl = st.ImageUrl
+                    ImageUrl = fileName
                 };
                 this._story.Add(storyEntity);
                 this._story.SaveChanges();
@@ -55,10 +59,12 @@
                 return View(st); 
         }
         public ActionResult Delete(int Id)
-        {
+        { 
             var storyEntity = _story.All()
                 .Where(x => x.StoryID == Id)
                 .FirstOrDefault();
+            var  path = System.IO.Path.Combine(Server.MapPath("~/Content/Pictures/"), storyEntity.ImageUrl);
+            System.IO.File.Delete(path);
             _story.Delete(storyEntity);
             _story.SaveChanges();
             return RedirectToAction("Index");

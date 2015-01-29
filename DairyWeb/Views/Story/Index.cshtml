@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<DairyWeb.ViewModels.StoryInfo>
+@using DairyWeb.CustomHtmlHelpers
 @{
     ViewBag.Title = "Index";
 }
-<h2>Index</h2>
+<h2>истории</h2>
 <p>
     @Html.ActionLink("Добави история", "Create")
 </p>
@@ -29,15 +30,19 @@
 {
     //  <fieldset>
     <div class="container border">
-      <article>@Html.DisplayFor(modelItem => item.Title)</article>  
+        <article>@Html.DisplayFor(modelItem => item.Title)</article>
         <table>
             <tr>
-                <td><img class="ProfilPicture" src="@item.ImageUrl" /></td>
+                <td><img class="ProfilPicture" src="~/Content/Pictures/@item.ImageUrl " /></td>
                 <td>
                     <div>@Html.DisplayFor(modelItem => item.StoryDate)</div>
-                    <div>@Html.DisplayFor(modelItem => item.Rate)</div>
+                    <div>
+                        @Html.StarRate(item.Rate,6)
+                        @*<img id="str1"  data-number="1" class="RateStare"  /><img id="str2"  class="RateStare" data-number="2" /><img id="str3"  class="RateStare" data-number="3" />
+                        <img id="str4" class="RateStare" data-number="4" /><img id="str5"  class="RateStare" data-number="5" /><img id="str6"  class="RateStare" data-number="6" />
+                        @Html.HiddenFor(modelItem => item.Rate)*@
+                    </div>
                 </td>
-
                 <td> @Html.DisplayFor(modelItem => item.StoryText)</td>
                 <td>
                     <a href="@Url.Action("Delete", "Story", new { id = item.StoryID })">
@@ -50,3 +55,6 @@
     // </fieldset>
 }
 @*</table>*@
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
