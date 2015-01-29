@@ -8,25 +8,10 @@
     @Html.ActionLink("Добави история", "Create")  | @Html.ActionLink("За мен", "Index","MySelf")
 
 </p>
-@*<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StoryDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StoryText)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </th>
-        <th></th>
-    </tr>*@
+<p>
+    
+</p>
+
 @foreach (var item in Model)
 {
     //  <fieldset>
@@ -34,14 +19,12 @@
         <article>@Html.DisplayFor(modelItem => item.Title)</article>
         <table>
             <tr>
-                <td><img class="SmallPicture" src="~/Content/Pictures/@item.ImageUrl " /></td>
+                <td><img class="ProfilPicture" src="~/Content/Pictures/@item.ImageUrl " /></td>
                 <td>
                     <div>@Html.DisplayFor(modelItem => item.StoryDate)</div>
                     <div>
                         @Html.StarRate(item.Rate,6)
-                        @*<img id="str1"  data-number="1" class="RateStare"  /><img id="str2"  class="RateStare" data-number="2" /><img id="str3"  class="RateStare" data-number="3" />
-                        <img id="str4" class="RateStare" data-number="4" /><img id="str5"  class="RateStare" data-number="5" /><img id="str6"  class="RateStare" data-number="6" />
-                        @Html.HiddenFor(modelItem => item.Rate)*@
+                        
                     </div>
                 </td>
                 <td> @Html.DisplayFor(modelItem => item.StoryText)</td>

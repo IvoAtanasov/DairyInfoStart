@@ -26,5 +26,6 @@
         [Display(Name = "Файл за снимка на събитието")]
         public HttpPostedFileBase  PostedFile { get; set; }
         public string ImageUrl { get; set; }
+        public string Search { get; set; }
     }
 }
