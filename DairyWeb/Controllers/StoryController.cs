@@ -20,7 +20,7 @@
         // GET: Story 
         public ActionResult Index()
         {
-            var allStories = _story.All()
+            var allStories = _story.All().OrderBy(x=>x.StoryDate)
                 .Project()
                 .To<StoryInfo>();
             return View(allStories);
@@ -29,7 +29,7 @@
         public ActionResult Index(string txtSearch)
         {
             var allStories = _story.All()
-                .Where(x=>x.Title.Contains(txtSearch) || x.StoryText.Contains(txtSearch))
+                .Where(x => x.Title.Contains(txtSearch) || x.StoryText.Contains(txtSearch)).OrderBy(x => x.StoryDate)
                 .Project()
                 .To<StoryInfo>();
             return View(allStories);

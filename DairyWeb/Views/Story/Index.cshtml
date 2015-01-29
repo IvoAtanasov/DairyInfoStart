@@ -16,19 +16,19 @@
 {
     //  <fieldset>
     <div class="container border">
-        <article>@Html.DisplayFor(modelItem => item.Title)</article>
-        <table>
+        <article><b>@Html.DisplayFor(modelItem => item.Title)</b></article>
+        <table class="container">
             <tr>
-                <td><img class="ProfilPicture" src="~/Content/Pictures/@item.ImageUrl " /></td>
-                <td>
+                <td class="detailPicture"><img class="ProfilPicture" src="~/Content/Pictures/@item.ImageUrl " /></td>
+                <td class="rate">
                     <div>@Html.DisplayFor(modelItem => item.StoryDate)</div>
                     <div>
                         @Html.StarRate(item.Rate,6)
                         
                     </div>
                 </td>
-                <td> @Html.DisplayFor(modelItem => item.StoryText)</td>
-                <td>
+                <td class="text"> @Html.DisplayFor(modelItem => item.StoryText)</td>
+                <td class="delete">
                     <a href="@Url.Action("Delete", "Story", new { id = item.StoryID })">
                         <img src="~/Content/Images/Delete.gif" />
                     </a>
@@ -36,6 +36,7 @@
             </tr>
         </table>
     </div>
+    <br />
     // </fieldset>
 }
 @*</table>*@

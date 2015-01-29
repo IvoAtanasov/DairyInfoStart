@@ -22,7 +22,7 @@
         [Display(Name="Рейтинг на историята")]
         public int Rate { get; set; }
         [Required(ErrorMessage = "Трябва да се попълни текст към историята")]
-        [Display(Name="Text")]
+        [Display(Name="Текст")]
         public string StoryText { get; set; }
         [Display(Name = "Файл за снимка на събитието")]
         public HttpPostedFileBase  PostedFile { get; set; }

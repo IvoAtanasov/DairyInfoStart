@@ -38,10 +38,26 @@ width:50px;
 div.border {
 	border-style: solid;
     border-width: medium;
-	display:block;
+	display:inline-flexbox;
 }
 td.picture {
 padding-left: 0px;
 padding-top:0px;
 }
+td.delete {
+padding-right: 0px;
+padding-top:0px;
+}
+td.text {
+width:60%
+}
+td.rate {
+width:15%;
+}
+td.detailPicture {
+width:20%;
+}
+table.container {
+width:100%;
 
+}
