@@ -29,7 +29,7 @@ namespace DairyDataLayer.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            //context.MySelf.AddOrUpdate(new MySelf{Name="Ivo",Born=DateTime.Now, ImageUrl=@"~\Content\Images\ProfilePicture.jpg"} );
+            //context.MySelf.AddOrUpdate(new MySelf { Name = "Ivo", Born = DateTime.Now, ImageUrl = @"~\Content\Images\ProfilePicture.jpg", Info="Проект за ИнфоСтарт" });
             //context.SaveChanges();
         }
     }

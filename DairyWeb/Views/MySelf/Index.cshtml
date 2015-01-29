@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DairyWeb.ViewModels.MySelfInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Информация за мен</h2>
+
+
+<table class="table">
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Born)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Born)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Info)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Info)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </td>
+        <td>
+        <td><img class="ProfilPicture" src="~/Content/Pictures/@item.ImageUrl" /></td>
+
+       
+    </tr>
+}
+</table>

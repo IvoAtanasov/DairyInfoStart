@@ -5,7 +5,8 @@
 }
 <h2>истории</h2>
 <p>
-    @Html.ActionLink("Добави история", "Create")
+    @Html.ActionLink("Добави история", "Create")  | @Html.ActionLink("За мен", "Index","MySelf")
+
 </p>
 @*<table class="table">
     <tr>
@@ -33,7 +34,7 @@
         <article>@Html.DisplayFor(modelItem => item.Title)</article>
         <table>
             <tr>
-                <td><img class="ProfilPicture" src="~/Content/Pictures/@item.ImageUrl " /></td>
+                <td><img class="SmallPicture" src="~/Content/Pictures/@item.ImageUrl " /></td>
                 <td>
                     <div>@Html.DisplayFor(modelItem => item.StoryDate)</div>
                     <div>

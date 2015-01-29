@@ -123,7 +123,7 @@
     <Content Include="Content\Images\14_star.png" />
     <Content Include="Content\Images\Delete.gif" />
     <Content Include="Content\Images\knewstuff.png" />
-    <Content Include="Content\Images\ProfilePicture.jpg" />
+    <Content Include="Content\Pictures\ProfilePicture.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -148,11 +148,13 @@
     <Content Include="Views\Story\Create.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\MySelf\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\MySelfController.cs" />
     <Compile Include="Controllers\StoryController.cs" />
     <Compile Include="CustomHtmlHelpers\CustomHtmlHelpers.cs" />
     <Compile Include="Global.asax.cs">
@@ -180,7 +182,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Pictures\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DairyDataLayer\DairyDataLayer.csproj">

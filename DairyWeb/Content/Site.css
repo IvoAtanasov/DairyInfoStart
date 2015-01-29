@@ -28,10 +28,13 @@ fieldset {
 }
 
 .ProfilPicture {
+height:200px;
+width:150px;
+}
+.SmallPicture {
 height:80px;
 width:50px;
 }
-
 div.border {
 	border-style: solid;
     border-width: medium;
