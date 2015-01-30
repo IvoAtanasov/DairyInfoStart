@@ -1,5 +1,5 @@
 ﻿@model DairyWeb.ViewModels.StoryInfo
-
+@using DairyWeb.CustomHtmlHelpers
 @{
     ViewBag.Title = "Create";
 }
@@ -36,8 +36,9 @@
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.Rate, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Rate, "", new { @class = "text-danger" })*@
-                <img id="str1"  src="~/Content/Images/14_star.png" data-number="1" class="RateStare" /><img id="str2" src="~/Content/Images/14_star.png" class="RateStare" data-number="2" /><img id="str3" src="~/Content/Images/14_star.png" class="RateStare" data-number="3" />
-                <img id="str4" src="~/Content/Images/14_star.png" class="RateStare" data-number="4" /><img id="str5" src="~/Content/Images/14_star.png" class="RateStare" data-number="5" /><img id="str6" src="~/Content/Images/14_star.png" class="RateStare" data-number="6" />
+                @*<img id="str1"  src="~/Content/Images/14_star.png" data-number="1" class="RateStare" /><img id="str2" src="~/Content/Images/14_star.png" class="RateStare" data-number="2" /><img id="str3" src="~/Content/Images/14_star.png" class="RateStare" data-number="3" />
+                <img id="str4" src="~/Content/Images/14_star.png" class="RateStare" data-number="4" /><img id="str5" src="~/Content/Images/14_star.png" class="RateStare" data-number="5" /><img id="str6" src="~/Content/Images/14_star.png" class="RateStare" data-number="6" />*@
+                @Html.StarRate(3, 6)
                 @Html.HiddenFor(x=>x.Rate)
             </div>
         </div>

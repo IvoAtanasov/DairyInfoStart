@@ -29,7 +29,7 @@
                 </td>
                 <td class="text"> @Html.DisplayFor(modelItem => item.StoryText)</td>
                 <td class="delete">
-                    <a href="@Url.Action("Delete", "Story", new { id = item.StoryID })">
+                    <a href="@Url.Action("Delete", "Story", new { id = item.StoryID })" id="adel">
                         <img src="~/Content/Images/Delete.gif" />
                     </a>
                 </td>
@@ -43,3 +43,4 @@
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/LoadStars.js"></script>

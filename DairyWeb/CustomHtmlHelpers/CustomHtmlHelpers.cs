@@ -13,7 +13,7 @@
         public static IHtmlString StarRate(this HtmlHelper helper, int rate,int maxRate)
         {
             StringBuilder starRate = new StringBuilder();
-            for (int counter = 1; counter < maxRate; counter++) {
+            for (int counter = 1; counter <= maxRate; counter++) {
                 TagBuilder tb = new TagBuilder("img");
                 if (counter <= rate)
                 {
@@ -22,6 +22,9 @@
                 else {
                     tb.Attributes.Add("src", "/Content/Images/14_star.png");
                 }
+                tb.Attributes.Add("id", "str" + counter);
+                tb.Attributes.Add("data-number",counter.ToString());
+                tb.Attributes.Add("class", "RateStare");
                 starRate.Append(tb.ToString(TagRenderMode.SelfClosing));
             }
                 return new MvcHtmlString(starRate.ToString());
