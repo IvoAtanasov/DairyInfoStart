@@ -5,24 +5,25 @@
 }
 <h2>Преглед на истории</h2>
 <p>
-   @Html.ActionLink("Списък със истории", "Create") |@Html.ActionLink("Добави история", "Create")  | @Html.ActionLink("За мен", "Index", "MySelf")
+   @Html.ActionLink("Списък със истории", "Index") |@Html.ActionLink("Добави история", "Create")  | @Html.ActionLink("За мен", "Index", "MySelf")
 </p>
 @*<p>
     @{Html.RenderPartial("_Search");}
 </p>*@
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        @foreach (var item in Model)
-        {
-            <li data-target="#myCarousel" data-slide-to='@(item.StoryID)' @((int)ViewBag.MinStoryID == item.StoryID ? "class='active'" : "")></li>
-        }
-    </ol>
+<input type="hidden" id="storyMIN" value="@ViewBag.MinStoryID" />
+<div class="container green ">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            @foreach (var item in Model)
+            {
+                <li data-target="#myCarousel" data-slide-to='@(item.StoryID)'></li>
+            }
+        </ol>
         <div class="carousel-inner" role="listbox">
             @foreach (var item in Model)
             {
 
-                <div @((int)ViewBag.MinStoryID == item.StoryID ? "class='item active'" : "class='item'")>
-
+                <div class="item" data-storyid='@(item.StoryID)'>
                     <article><b>@Html.DisplayFor(modelItem => item.Title)</b></article>
                     <table class="container">
                         <tr>
@@ -31,7 +32,6 @@
                                 <div>@Html.DisplayFor(modelItem => item.StoryDate)</div>
                                 <div>
                                     @Html.StarRate(item.Rate, 6)
-
                                 </div>
                             </td>
                             <td class="text"> @Html.DisplayFor(modelItem => item.StoryText)</td>
@@ -51,10 +51,11 @@
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-</div>
+    </div>
+    </div>
     @*</table>*@
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Scripts/LoadStars.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/CarouselActive.js"></script>

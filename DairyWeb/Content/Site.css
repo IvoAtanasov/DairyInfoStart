@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+	background-color: #00FFCC;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -58,6 +59,11 @@ td.detailPicture {
 width:20%;
 }
 table.container {
-width:100%;
-
+	width: 100%;
+}
+div.green {
+background-color:#0DFFB1; /*#00FF66;*/
+}
+.submit {
+background-color:#FFD6FF;
 }

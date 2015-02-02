@@ -40,7 +40,7 @@ namespace DairyWeb.App_Start
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap-datepicker3.css",
-                      "~/Content/site.css"));
+                      "~/Content/Site.css"));
 
         }
     }
