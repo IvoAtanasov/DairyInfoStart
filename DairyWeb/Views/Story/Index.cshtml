@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<DairyWeb.ViewModels.StoryInfo>
 @using DairyWeb.CustomHtmlHelpers
 @{
+
     ViewBag.Title = "Index";
 }
 <h2>Истории</h2>
 <p>
-    @Html.ActionLink("Добави история", "Create")  | @Html.ActionLink("За мен", "Index","MySelf")
+ @Html.ActionLink("Слайд", "Slide")    |  @Html.ActionLink("Добави история", "Create")  | @Html.ActionLink("За мен", "Index","MySelf")
 
 </p>
 <p>

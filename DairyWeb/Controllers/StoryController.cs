@@ -79,5 +79,16 @@
             return RedirectToAction("Index");
            // return View();
         }
+
+        public ActionResult Slide()
+        {
+            var allStories = _story.All().OrderBy(x => x.StoryID)
+                  .Project()
+                  .To<StoryInfo>();
+            var minID = _story.All()
+                .Min(x => x.StoryID);
+            ViewBag.MinStoryID = (int)minID;
+            return View(allStories);
+        }
     }
 }
