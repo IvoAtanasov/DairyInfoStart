@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DairyWeb.ViewModels.StoryInfo>
+@using DairyWeb.CustomHtmlHelpers
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Преглед на истории</h2>
+<p>
+   @Html.ActionLink("Списък със истории", "Create") |@Html.ActionLink("Добави история", "Create")  | @Html.ActionLink("За мен", "Index", "MySelf")
+</p>
+@*<p>
+    @{Html.RenderPartial("_Search");}
+</p>*@
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        @foreach (var item in Model)
+        {
+            <li data-target="#myCarousel" data-slide-to='@(item.StoryID)' @((int)ViewBag.MinStoryID == item.StoryID ? "class='active'" : "")></li>
+        }
+    </ol>
+        <div class="carousel-inner" role="listbox">
+            @foreach (var item in Model)
+            {
+
+                <div @((int)ViewBag.MinStoryID == item.StoryID ? "class='item active'" : "class='item'")>
+
+                    <article><b>@Html.DisplayFor(modelItem => item.Title)</b></article>
+                    <table class="container">
+                        <tr>
+                            <td class="detailPicture"><img class="ProfilPicture" src="~/Content/Pictures/@item.ImageUrl " /></td>
+                            <td class="rate">
+                                <div>@Html.DisplayFor(modelItem => item.StoryDate)</div>
+                                <div>
+                                    @Html.StarRate(item.Rate, 6)
+
+                                </div>
+                            </td>
+                            <td class="text"> @Html.DisplayFor(modelItem => item.StoryText)</td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                // </fieldset>
+            }
+        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+</div>
+    @*</table>*@
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/LoadStars.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
